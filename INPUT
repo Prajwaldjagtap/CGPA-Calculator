@@ -1,0 +1,75 @@
+#include <iostream>
+#include <vector>
+#include <iomanip>
+using namespace std;
+
+// Function to convert grade to grade points
+int getGradePoint(string grade) {
+    if (grade == "O") return 10;
+    else if (grade == "A+") return 9;
+    else if (grade == "A") return 8;
+    else if (grade == "B+") return 7;
+    else if (grade == "B") return 6;
+    else if (grade == "C") return 5;
+    else if (grade == "F") return 0;
+    else return -1; // Invalid grade
+}
+
+int main() {
+    int n;
+    cout << "Enter number of courses in this semester: ";
+    cin >> n;
+
+    vector<string> grades(n);
+    vector<int> credits(n);
+
+    int totalCredits = 0;
+    int totalGradePoints = 0;
+
+    for (int i = 0; i < n; i++) {
+        cout << "\nCourse " << i + 1 << endl;
+        cout << "Enter Grade (O, A+, A, B+, B, C, F): ";
+        cin >> grades[i];
+
+        cout << "Enter Credit Hours: ";
+        cin >> credits[i];
+
+        int gp = getGradePoint(grades[i]);
+
+        if (gp == -1) {
+            cout << "Invalid grade entered! Try again.\n";
+            i--;
+            continue;
+        }
+
+        totalCredits += credits[i];
+        totalGradePoints += gp * credits[i];
+    }
+
+    double semesterGPA = (double)totalGradePoints / totalCredits;
+
+    // Previous academic record for CGPA
+    double prevCredits, prevGradePoints;
+    cout << "\nEnter total credits completed before this semester: ";
+    cin >> prevCredits;
+
+    cout << "Enter total grade points earned before this semester: ";
+    cin >> prevGradePoints;
+
+    double overallCGPA = (prevGradePoints + totalGradePoints) /
+                         (prevCredits + totalCredits);
+
+    // Output
+    cout << "\n----- Course Summary -----\n";
+    for (int i = 0; i < n; i++) {
+        cout << "Course " << i + 1 << ": Grade = " << grades[i]
+             << ", Credits = " << credits[i] << endl;
+    }
+
+    cout << fixed << setprecision(2);
+    cout << "\nTotal Credits (This Semester): " << totalCredits << endl;
+    cout << "Semester GPA: " << semesterGPA << endl;
+    cout << "Overall CGPA: " << overallCGPA << endl;
+
+    return 0;
+}
