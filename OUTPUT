@@ -1,0 +1,38 @@
+Enter number of courses in this semester: 5
+
+Course 1
+Enter Grade (O, A+, A, B+, B, C, F): A
+Enter Credit Hours: 21
+
+Course 2
+Enter Grade (O, A+, A, B+, B, C, F): B+
+Enter Credit Hours: 23
+
+Course 3
+Enter Grade (O, A+, A, B+, B, C, F): C
+Enter Credit Hours: 20
+
+Course 4
+Enter Grade (O, A+, A, B+, B, C, F): F
+Enter Credit Hours: 18
+
+Course 5
+Enter Grade (O, A+, A, B+, B, C, F): O
+Enter Credit Hours: 25
+
+Enter total credits completed before this semester: 87
+Enter total grade points earned before this semester: 24
+
+----- Course Summary -----
+Course 1: Grade = A, Credits = 21
+Course 2: Grade = B+, Credits = 23
+Course 3: Grade = C, Credits = 20
+Course 4: Grade = F, Credits = 18
+Course 5: Grade = O, Credits = 25
+
+Total Credits (This Semester): 107
+Semester GPA: 6.35
+Overall CGPA: 3.62
+
+
+=== Code Execution Successful ===
